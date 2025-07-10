@@ -1,0 +1,194 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateEventInput {
+  date: DateTime!
+  location: String
+  name: String!
+}
+
+input CreateFightInput {
+  event_id: Int!
+  fighter_blue_id: Int!
+  fighter_red_id: Int!
+  method: String
+  result_details: String
+  round: Int
+  time: String
+  winner_id: Int
+}
+
+input CreateFighterInput {
+  birthdate: DateTime
+  first_name: String!
+  gym: String
+  height_cm: Int
+  last_name: String!
+  nationality: String
+  nickname: String
+  reach_cm: Int
+  stance: String
+  weight_class_id: Int!
+  weight_kg: Int
+}
+
+input CreateRankingInput {
+  fighter_id: Int!
+  points: Int!
+  rank: Int!
+  weight_class_id: Int!
+}
+
+input CreateWeightClassInput {
+  max_weight_kg: Int!
+  min_weight_kg: Int!
+  name: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Event {
+  created_at: DateTime!
+  date: DateTime!
+  fights: [Fight!]
+  id: Int!
+  location: String
+  name: String!
+  updated_at: DateTime!
+}
+
+type Fight {
+  created_at: DateTime!
+  event: Event!
+  fighter_blue: Fighter!
+  fighter_red: Fighter!
+  id: Int!
+  method: String
+  result_details: String
+  round: Float
+  time: String
+  updated_at: DateTime!
+  winner: Fighter
+}
+
+type Fighter {
+  birthdate: DateTime
+  blue_corner_fights: [Fight!]
+  created_at: DateTime!
+  first_name: String!
+  gym: String
+  height_cm: Float
+  id: Int!
+  last_name: String!
+  nationality: String
+  nickname: String
+  reach_cm: Float
+  red_corner_fights: [Fight!]
+  stance: String
+  updated_at: DateTime!
+  weight_class: WeightClass
+  weight_kg: Float
+  wins: [Fight!]
+}
+
+type Mutation {
+  createEvent(createEventInput: CreateEventInput!): Event!
+  createFight(createFightInput: CreateFightInput!): Fight!
+  createFighter(createFighterInput: CreateFighterInput!): Fighter!
+  createRanking(createRankingInput: CreateRankingInput!): Ranking!
+  createWeightClass(createWeightClassInput: CreateWeightClassInput!): WeightClass!
+  removeEvent(id: Int!): Boolean!
+  removeFight(id: Int!): Boolean!
+  removeFighter(id: Int!): Boolean!
+  removeRanking(id: Int!): Boolean!
+  removeWeightClass(id: Int!): Boolean!
+  updateEvent(updateEventInput: UpdateEventInput!): Event!
+  updateFight(updateFightInput: UpdateFightInput!): Fight!
+  updateFighter(updateFighterInput: UpdateFighterInput!): Fighter!
+  updateRanking(updateRankingInput: UpdateRankingInput!): Ranking!
+  updateWeightClass(updateWeightClassInput: UpdateWeightClassInput!): WeightClass!
+}
+
+type Query {
+  event(id: Int!): Event!
+  events: [Event!]!
+  fight(id: Int!): Fight!
+  fighter(id: Int!): Fighter!
+  fighters: [Fighter!]!
+  fights: [Fight!]!
+  ranking(id: Int!): Ranking!
+  rankings(weight_class_id: Int): [Ranking!]!
+  weightClass(id: Int!): WeightClass!
+  weightClasses: [WeightClass!]!
+}
+
+type Ranking {
+  fighter: Fighter!
+  id: Int!
+  last_updated: DateTime!
+  points: Int!
+  rank: Int!
+  weight_class: WeightClass!
+}
+
+input UpdateEventInput {
+  date: DateTime
+  id: Int!
+  location: String
+  name: String
+}
+
+input UpdateFightInput {
+  event_id: Int
+  fighter_blue_id: Int
+  fighter_red_id: Int
+  id: Int!
+  method: String
+  result_details: String
+  round: Int
+  time: String
+  winner_id: Int
+}
+
+input UpdateFighterInput {
+  birthdate: DateTime
+  first_name: String
+  gym: String
+  height_cm: Int
+  id: Int!
+  last_name: String
+  nationality: String
+  nickname: String
+  reach_cm: Int
+  stance: String
+  weight_class_id: Int
+  weight_kg: Int
+}
+
+input UpdateRankingInput {
+  fighter_id: Int
+  id: Int!
+  points: Int
+  rank: Int
+  weight_class_id: Int
+}
+
+input UpdateWeightClassInput {
+  id: Int!
+  max_weight_kg: Int
+  min_weight_kg: Int
+  name: String
+}
+
+type WeightClass {
+  fighters: [Fighter!]
+  id: Int!
+  max_weight_kg: Int!
+  min_weight_kg: Int!
+  name: String!
+  rankings: [Ranking!]
+}

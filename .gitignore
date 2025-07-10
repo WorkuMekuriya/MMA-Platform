@@ -1,0 +1,38 @@
+# Node
+node_modules/
+dist/
+.env
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+*.tsbuildinfo
+
+# IDEs
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Misc
+*.bak
+*.old
+*.tmp
+
+# Compiled output
+*.js
+*.js.map
+*.d.ts
+
+# Postman
+*.postman_collection.json
+
+# Ignore ERD and other exports if not needed
+ERD.xml 
+.yarn
