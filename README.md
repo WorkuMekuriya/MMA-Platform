@@ -238,10 +238,8 @@ yarn test:e2e
 ## Submission Checklist
 - [x] **Entity Relationship Diagram (ERD):** See [`ERD.svg`](./ERD.svg)
 - [x] **SQL DDL Scripts:** See [`schema.sql`](./schema.sql)
-- [x] **Full Source Code Repository:** (add your GitHub/GitLab link here)
 - [x] **Documented Ranking Algorithm:** See [`RANKING_ALGORITHM.md`](./RANKING_ALGORITHM.md)
 - [x] **API Documentation & Usage Examples:** See [`API_DOCS.md`](./API_DOCS.md)
-- [x] **Structured Commit History:** Maintained throughout the project
 
 ---
 
